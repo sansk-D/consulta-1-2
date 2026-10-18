@@ -1,0 +1,787 @@
+/* ==========================================================================
+   MediFácil INFRAMEN - Estilos Clínicos Profesionales (Mobile-First)
+   Especialidad: Desarrollo de Software 1-2
+   Instituto Nacional General Francisco Menéndez (INFRAMEN)
+   ========================================================================== */
+
+:root {
+  --primary: #0284c7;
+  --primary-dark: #0369a1;
+  --primary-light: #e0f2fe;
+  --secondary: #0f766e;
+  --secondary-light: #ccfbf1;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #cbd5e1;
+  
+  --danger-bg: #fef2f2;
+  --danger-border: #f87171;
+  --danger-text: #991b1b;
+  
+  --warning-bg: #fffbeb;
+  --warning-border: #fcd34d;
+  --warning-text: #92400e;
+  
+  --success-bg: #f0fdf4;
+  --success-border: #86efac;
+  --success-text: #166534;
+  
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  
+  --font-base: 1rem;
+  --touch-target: 48px;
+}
+
+/* Modo Accesibilidad: Letra Grande */
+body.font-large {
+  --font-base: 1.18rem;
+}
+
+body.font-large .med-title {
+  font-size: 1.85rem !important;
+}
+
+body.font-large .highlight-text {
+  font-size: 1.35rem !important;
+  line-height: 1.55 !important;
+}
+
+body.font-large .search-input {
+  font-size: 1.25rem !important;
+  padding: 1.2rem 1.2rem 1.2rem 3.4rem !important;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-size: var(--font-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Encabezado Clínico Serio */
+.header-hero {
+  background: linear-gradient(135deg, #075985 0%, #0369a1 100%);
+  color: white;
+  padding: 1.25rem 1rem 2rem;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
+}
+
+.top-bar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.school-tag {
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.font-size-toggle {
+  background: white;
+  color: var(--primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 36px;
+  transition: background 0.15s;
+}
+
+.font-size-toggle:active {
+  background: #f1f5f9;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-logo-icon {
+  background: rgba(255, 255, 255, 0.2);
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.app-main-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.app-sub-title {
+  font-size: 0.9rem;
+  color: #e0f2fe;
+  margin-top: 0.25rem;
+  max-width: 580px;
+  line-height: 1.45;
+}
+
+/* Buscador Adaptado a Pantallas Táctiles */
+.search-wrapper {
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 0.65rem;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+  border: 1.5px solid #cbd5e1;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-img {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.95rem 2.85rem 0.95rem 3rem;
+  font-size: 1.05rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: all 0.2s;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: #e2e8f0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botones Táctiles de Consultas Clínicas */
+.symptoms-selector {
+  margin-top: 0.75rem;
+}
+
+.symptoms-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.45rem;
+}
+
+@media (max-width: 480px) {
+  .symptoms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.symptom-btn {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.65rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target);
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.symptom-btn:active,
+.symptom-btn:hover {
+  background: var(--primary-light);
+  border-color: #38bdf8;
+  color: var(--primary-dark);
+}
+
+/* Ficha Farmacológica Principal */
+.med-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  padding: 1.35rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.med-header {
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid #f1f5f9;
+  margin-bottom: 1rem;
+}
+
+.med-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.med-icon-big {
+  background: #f0f9ff;
+  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bae6fd;
+  flex-shrink: 0;
+}
+
+.med-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0c4a6e;
+  line-height: 1.25;
+}
+
+.med-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+
+/* Botón de Audio Accesible */
+.btn-voice-large {
+  background: #0284c7;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--touch-target);
+  width: 100%;
+  margin-bottom: 1.25rem;
+  transition: background 0.15s;
+}
+
+.btn-voice-large:active {
+  background: #0369a1;
+}
+
+.btn-voice-large.speaking {
+  background: #0f766e;
+}
+
+/* Bloque: Acción Terapéutica Principal */
+.purpose-box {
+  background: #f8fafc;
+  border-left: 5px solid var(--primary);
+  border-radius: 4px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.purpose-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.highlight-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.45;
+}
+
+/* Marcas Comerciales */
+.brands-row {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+}
+
+.brands-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.brands-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.brand-chip {
+  background: white;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+/* Modo de Uso */
+.how-to-take-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.how-to-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.how-to-text {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* Semáforo de Seguridad Clínica */
+.safety-box {
+  margin-bottom: 1.25rem;
+}
+
+.safety-header-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.65rem;
+}
+
+.traffic-card {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.65rem;
+  border-left: 5px solid;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.traffic-card-icon {
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.traffic-card-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.traffic-card-desc {
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.traffic-red {
+  background: var(--danger-bg);
+  border-left-color: #dc2626;
+  border-color: #fecaca;
+  color: var(--danger-text);
+}
+
+.traffic-yellow {
+  background: var(--warning-bg);
+  border-left-color: #d97706;
+  border-color: #fde68a;
+  color: var(--warning-text);
+}
+
+.traffic-green {
+  background: var(--success-bg);
+  border-left-color: #16a34a;
+  border-color: #bbf7d0;
+  color: var(--success-text);
+}
+
+/* Sustancias a Evitar */
+.avoid-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.avoid-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #991b1b;
+  margin-bottom: 0.35rem;
+}
+
+.avoid-list {
+  list-style-type: square;
+  list-style-position: inside;
+  font-size: 0.92rem;
+  color: #334155;
+  padding-left: 0;
+}
+
+.avoid-list li {
+  margin-bottom: 0.2rem;
+}
+
+/* Botones Secundarios */
+.action-buttons-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-secondary-touch {
+  flex: 1;
+  background: white;
+  border: 1.5px solid #cbd5e1;
+  padding: 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: var(--touch-target);
+  transition: background 0.15s;
+}
+
+.btn-secondary-touch:active {
+  background: #f1f5f9;
+}
+
+/* Tarjetas Desplegables */
+.collapsible-card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #cbd5e1;
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+}
+
+.collapsible-trigger {
+  width: 100%;
+  padding: 1rem 1.1rem;
+  background: white;
+  border: none;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  min-height: 52px;
+}
+
+.collapsible-trigger:active {
+  background: #f8fafc;
+}
+
+.toggle-chevron {
+  transition: transform 0.2s ease;
+  color: #64748b;
+}
+
+.toggle-chevron.rotate {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  padding: 0 1.1rem 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.collapsible-content.hidden {
+  display: none;
+}
+
+/* Comparador */
+.simple-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .simple-compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.comp-pill {
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  background: #f8fafc;
+}
+
+.comp-pill h4 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  color: #0369a1;
+}
+
+/* Horarios */
+.schedule-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  align-items: center;
+}
+
+.input-label-sm {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.input-custom {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  background: white;
+  min-height: 44px;
+}
+
+.timeline-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.time-chip {
+  background: #0284c7;
+  color: white;
+  padding: 0.45rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Catálogo */
+.meds-simple-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+@media (min-width: 500px) {
+  .meds-simple-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.med-list-item {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  transition: all 0.15s;
+}
+
+.med-list-item:active {
+  background: var(--primary-light);
+  border-color: #0284c7;
+}
+
+.med-list-item strong {
+  font-size: 0.92rem;
+  color: #0f172a;
+}
+
+/* Emergencias El Salvador */
+.emergency-strip {
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.emergency-strip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 800;
+  color: #991b1b;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.emergency-phone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+}
+
+.phone-card {
+  background: white;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.phone-card a {
+  text-decoration: none;
+  color: #dc2626;
+  font-size: 1.2rem;
+  font-weight: 800;
+  display: block;
+}
+
+.phone-card span {
+  font-size: 0.74rem;
+  color: #7f1d1d;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.15rem;
+}
+
+/* Pie Institucional */
+.school-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  color: #64748b;
+  font-size: 0.85rem;
+  border-top: 1px solid #cbd5e1;
+}
+
+.school-footer strong {
+  color: #1e293b;
+}
+
+.hidden {
+  display: none !important;
+}

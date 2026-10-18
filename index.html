@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MediFácil | INFRAMEN Sección 1-2 Desarrollo de Software</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230284c7%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M10.5 20.5 20.5 10.5a4.95 4.95 0 1 0-7-7L3.5 13.5a4.95 4.95 0 1 0 7 7Z%22/><path d=%22m8.5 8.5 7 7%22/></svg>">
+</head>
+<body>
+
+  <!-- Encabezado Superior Clínico Institucional -->
+  <header class="header-hero">
+    <div class="container">
+      <div class="top-bar-controls">
+        <span class="school-tag">INFRAMEN • SECCIÓN 1-2 DESARROLLO DE SOFTWARE</span>
+        <!-- Botón de Letra Grande para Adultos Mayores -->
+        <button id="btnToggleFont" class="font-size-toggle" title="Aumentar tamaño de letra para lectura cómoda">
+          Letra Grande
+        </button>
+      </div>
+
+      <div class="brand-row">
+        <div class="brand-logo-icon">
+          <!-- Cruz Médica Vectorial Elegante -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6v12M6 12h12"/>
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="app-main-title">MediFácil</h1>
+          <p class="app-sub-title">
+            Plataforma de orientación farmacológica accesible: consulte indicaciones, pautas posológicas y advertencias clínicas en lenguaje directo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Buscador Clínico Inteligente -->
+    <section class="search-wrapper">
+      <div class="search-box">
+        <div class="input-container">
+          <span class="search-icon-img">
+            <!-- Icono Lupa SVG -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Ingrese el medicamento (ej. Panadol, Ibuprofeno) o el síntoma..."
+            autocomplete="off"
+            aria-label="Buscar medicamento o síntoma"
+          >
+          <button id="clearSearchBtn" class="clear-search-btn hidden" title="Borrar búsqueda">✕</button>
+        </div>
+
+        <!-- Botones Táctiles de Criterios Clínicos Frecuentes -->
+        <div class="symptoms-selector">
+          <span class="symptoms-label">Consultas clínicas rápidas:</span>
+          <div class="symptoms-grid">
+            <button class="symptom-btn" data-query="Dolor de cabeza">Cefalea y Dolor</button>
+            <button class="symptom-btn" data-query="Fiebre">Estado Febril</button>
+            <button class="symptom-btn" data-query="Gripe">Gripe y Congestión</button>
+            <button class="symptom-btn" data-query="Acidez">Acidez y Gastritis</button>
+            <button class="symptom-btn" data-query="Alergia">Alergias y Rinitis</button>
+            <button class="symptom-btn" data-query="Presión">Tensión Arterial</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FICHA FARMACOLÓGICA PRINCIPAL (Limpia, Serena y Profesional) -->
+    <section id="mainCard" class="med-card">
+      
+      <!-- Cabecera de la Ficha -->
+      <div class="med-header">
+        <div class="med-title-group">
+          <div class="med-icon-big" id="medIcon" aria-hidden="true">
+            <!-- SVG inyectado por JS según forma farmacéutica -->
+          </div>
+          <div>
+            <h2 class="med-title" id="medTitle">Paracetamol (Acetaminofén)</h2>
+            <span class="med-badge" id="medBadge">Analgésico y Antipirético</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTÓN DE AUDIO Y VOZ CLÍNICO ACCESIBLE -->
+      <button id="btnVoice" class="btn-voice-large" title="Escuchar la lectura del resumen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        </svg>
+        <span>Escuchar Explicación en Voz Alta</span>
+      </button>
+
+      <!-- ACCIÓN TERAPÉUTICA PRINCIPAL -->
+      <div class="purpose-box">
+        <div class="purpose-label">Acción Terapéutica Principal</div>
+        <p class="highlight-text" id="medPurpose">
+          Indicado para aliviar dolores leves o moderados de cabeza, piezas dentales, cuerpo y para reducir la fiebre.
+        </p>
+      </div>
+
+      <!-- Nombres comerciales en farmacias -->
+      <div class="brands-row">
+        <span class="brands-label">Nombres comerciales y marcas habituales:</span>
+        <div class="brands-container" id="medBrands">
+          <!-- Marcas cargadas con JS -->
+        </div>
+      </div>
+
+      <!-- PAUTA POSOLÓGICA Y FORMA DE USO -->
+      <div class="how-to-take-box">
+        <div class="how-to-title">
+          <span>Pauta de Administración</span>
+        </div>
+        <p class="how-to-text" id="medHowTo">
+          Ingerir con un vaso con agua. Puede tomarse con o sin alimentos. En adultos, respetar un intervalo de 6 a 8 horas entre cada toma.
+        </p>
+      </div>
+
+      <!-- SEMÁFORO DE PRECAUCIÓN Y SEGURIDAD CLÍNICA -->
+      <div class="safety-box">
+        <h3 class="safety-header-title">Parámetros de Seguridad Clínica</h3>
+
+        <!-- ROJO: Contraindicación / Peligro -->
+        <div class="traffic-card traffic-red">
+          <div class="traffic-card-icon" id="iconRed">
+            <!-- SVG Alerta Peligro -->
+          </div>
+          <div>
+            <div class="traffic-card-title">Contraindicación Crítica:</div>
+            <div class="traffic-card-desc" id="alertRed">
+              No exceder la dosis máxima de 4 gramos al día en adultos. El exceso genera daño hepático severo.
+            </div>
+          </div>
+        </div>
+
+        <!-- AMARILLO: Precaución / Efectos adversos -->
+        <div class="traffic-card traffic-yellow">
+          <div class="traffic-card-icon" id="iconYellow">
+            <!-- SVG Alerta Precaución -->
+          </div>
+          <div>
+            <div class="traffic-card-title">Precauciones y Advertencias:</div>
+            <div class="traffic-card-desc" id="alertYellow">
+              Diversos antigripales combinados ya contienen acetaminofén; verifique etiquetas para no duplicar dosis.
+            </div>
+          </div>
+        </div>
+
+        <!-- VERDE: Recomendación de uso seguro -->
+        <div class="traffic-card traffic-green">
+          <div class="traffic-card-icon" id="iconGreen">
+            <!-- SVG Alerta Positiva -->
+          </div>
+          <div>
+            <div class="traffic-card-title">Recomendación Terapéutica:</div>
+            <div class="traffic-card-desc" id="alertGreen">
+              Posee una excelente tolerancia gástrica y es seguro para personas de la tercera edad bajo la dosis indicada.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interacciones y sustancias a evitar -->
+      <div class="avoid-box">
+        <div class="avoid-title">Interacciones y Sustancias Contraindicadas:</div>
+        <ul class="avoid-list" id="medAvoid">
+          <!-- Lista con JS -->
+        </ul>
+      </div>
+
+      <!-- Botones de Acción Secundaria -->
+      <div class="action-buttons-row">
+        <button id="btnCopySummary" class="btn-secondary-touch">
+          <!-- Icono Copiar SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          <span>Copiar Ficha</span>
+        </button>
+        <button class="btn-secondary-touch" onclick="window.print()">
+          <!-- Icono Imprimir SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          <span>Imprimir Ficha</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Estado sin resultados -->
+    <div id="noResultsBox" class="med-card hidden" style="text-align: center; padding: 2.5rem 1rem;">
+      <div style="width: 48px; height: 48px; margin: 0 auto 0.75rem; color: #94a3b8;">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <h3 style="color: #1e293b; font-size: 1.15rem;">No se encontraron registros para "<span id="searchedTermText"></span>"</h3>
+      <p style="color: #64748b; font-size: 0.92rem; margin-top: 0.35rem; max-width: 450px; margin-left: auto; margin-right: auto;">
+        Compruebe la ortografía, busque por el síntoma (ej. <em>cefalea, fiebre, acidez</em>) o consulte el catálogo general inferior.
+      </p>
+    </div>
+
+    <!-- SECCIÓN DESPLEGABLE 1: Comparador Farmacológico -->
+    <div class="collapsible-card">
+      <button class="collapsible-trigger" data-target="compareSection">
+        <span>Comparador Farmacológico Directo</span>
+        <svg class="toggle-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="compareSection" class="collapsible-content hidden">
+        <p style="font-size: 0.88rem; color: #64748b; margin-top: 0.5rem;">
+          Contraste las propiedades farmacológicas entre dos medicamentos de uso habitual:
+        </p>
+
+        <!-- Chips de comparación rápida -->
+        <div id="quickCompareChips" style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.65rem 0;"></div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <select id="compSelect1" class="input-custom"></select>
+          <select id="compSelect2" class="input-custom"></select>
+        </div>
+
+        <div class="simple-compare-grid">
+          <div class="comp-pill">
+            <h4 id="compTitle1">Fármaco A</h4>
+            <p style="font-size: 0.92rem; margin-bottom: 0.35rem;" id="compDesc1"></p>
+            <p style="font-size: 0.88rem; color: #166534;" id="compTip1"></p>
+          </div>
+          <div class="comp-pill">
+            <h4 id="compTitle2">Fármaco B</h4>
+            <p style="font-size: 0.92rem; margin-bottom: 0.35rem;" id="compDesc2"></p>
+            <p style="font-size: 0.88rem; color: #166534;" id="compTip2"></p>
+          </div>
+        </div>
+
+        <div style="background: #e0f2fe; padding: 0.85rem; border-radius: 8px; margin-top: 0.75rem; border-left: 4px solid #0284c7;">
+          <p id="compVerdict" style="font-size: 0.92rem; color: #0369a1; font-weight: 600;"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DESPLEGABLE 2: Calculadora de Intervalos de Administración -->
+    <div class="collapsible-card">
+      <button class="collapsible-trigger" data-target="scheduleSection">
+        <span>Planificador de Horarios de Dosis</span>
+        <svg class="toggle-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="scheduleSection" class="collapsible-content hidden">
+        <p style="font-size: 0.88rem; color: #64748b; margin-top: 0.5rem;">
+          Calcule los intervalos de toma a partir de la primera dosis prescrita:
+        </p>
+
+        <div class="schedule-controls">
+          <div>
+            <label class="input-label-sm" for="timeStart">Hora primera dosis:</label>
+            <input type="time" id="timeStart" class="input-custom" value="08:00">
+          </div>
+          <div>
+            <label class="input-label-sm" for="selectEveryHours">Intervalo horario:</label>
+            <select id="selectEveryHours" class="input-custom">
+              <option value="6">Cada 6 horas (4 tomas al día)</option>
+              <option value="8" selected>Cada 8 horas (3 tomas al día)</option>
+              <option value="12">Cada 12 horas (2 tomas al día)</option>
+              <option value="24">Cada 24 horas (1 toma diaria)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="btnCalcHours" class="btn-voice-large" style="margin-top: 0.75rem; margin-bottom: 0.5rem; min-height: 44px; font-size: 0.95rem;">
+          Calcular Horario Diario
+        </button>
+
+        <div class="timeline-chips" id="timelineOutput">
+          <div class="time-chip">Toma 1: <strong>08:00 AM</strong></div>
+          <div class="time-chip">Toma 2: <strong>04:00 PM</strong></div>
+          <div class="time-chip">Toma 3: <strong>12:00 AM</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN DESPLEGABLE 3: Catálogo General Oculto -->
+    <div class="collapsible-card">
+      <button class="collapsible-trigger" data-target="allMedsSection">
+        <span>Catálogo General de Medicamentos <span id="allMedsCount"></span></span>
+        <svg class="toggle-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="allMedsSection" class="collapsible-content hidden">
+        <p style="font-size: 0.88rem; color: #64748b; margin-top: 0.5rem;">
+          Seleccione cualquier registro para visualizar su ficha descriptiva:
+        </p>
+        <div class="meds-simple-list" id="allMedsList">
+          <!-- Inyectado por JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Directorio Asistencial de Urgencias El Salvador -->
+    <div class="emergency-strip">
+      <div class="emergency-strip-header">
+        <!-- Escudo de Urgencia SVG -->
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span>Líneas Asistenciales de Emergencia (El Salvador)</span>
+      </div>
+      <p style="font-size: 0.82rem; color: #7f1d1d; margin-bottom: 0.65rem;">
+        En casos de intoxicación medicamentosa aguda, sobredosis o choque anafiláctico, comuníquese de inmediato:
+      </p>
+      <div class="emergency-phone-grid">
+        <div class="phone-card">
+          <a href="tel:132">132</a>
+          <span>Emergencias Médicas (SEM)</span>
+        </div>
+        <div class="phone-card">
+          <a href="tel:22225155">2222-5155</a>
+          <span>Cruz Roja Salvadoreña</span>
+        </div>
+        <div class="phone-card">
+          <a href="tel:911">911</a>
+          <span>Policía Nacional Civil</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Pie Institucional INFRAMEN -->
+  <footer class="school-footer">
+    <p><strong>Instituto Nacional General Francisco Menéndez (INFRAMEN)</strong></p>
+    <p>Bachillerato Técnico Vocacional en Desarrollo de Software • Sección 1-2</p>
+    <p style="font-size: 0.78rem; margin-top: 0.35rem; color: #94a3b8;">
+      Proyecto para Feria Técnico-Científica • Finalidad formativa y comunitaria
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/database.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
