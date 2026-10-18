@@ -3,6 +3,9 @@
 ### Proyecto Técnico Institucional - Sección 1-2 Desarrollo de Software
 **Instituto Nacional General Francisco Menéndez (INFRAMEN)**
 
+🌐 **Sitio Web Público en Vivo:** [https://sansk-d.github.io/consulta-1-2/](https://sansk-d.github.io/consulta-1-2/)  
+📁 **Repositorio GitHub:** [https://github.com/sansk-D/consulta-1-2](https://github.com/sansk-D/consulta-1-2)
+
 Plataforma de orientación farmacológica accesible con estándar clínico profesional, diseñada para que cualquier persona o adulto mayor pueda consultar indicaciones, pautas de administración y advertencias de medicamentos de forma directa, visual y sin lenguaje agobiante.
 
 ---
