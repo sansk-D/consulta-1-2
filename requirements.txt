@@ -1,0 +1,3 @@
+opencv-python>=4.8.0
+# Para instalar Dlib en Python 3.13 en Windows:
+# pip install dlib-19.24.99-cp313-cp313-win_amd64.whl
